@@ -181,4 +181,28 @@ The container was inspected and identified as Debian GNU/Linux 13. Python 3, vir
 
 **Validation:** Pending confirmation of installed tool versions.
 
-**Lesson learned:** Tools installed on the host machine are not automatically available inside Docker containers. Each container requires its own dependencies or an explicitly configured build environment.`
+**Lesson learned:** Tools installed on the host machine are not automatically available inside Docker containers. Each container requires its own dependencies or an explicitly configured build environment
+
+
+## Jenkins CI/CD Pipeline Results
+
+The Jenkins pipeline completed successfully on the first build.
+
+### Pipeline stages
+1. Checkout — Retrieved source code from GitHub.
+2. Build — Created a Python virtual environment and installed dependencies.
+3. Test — Ran automated tests using pytest.
+4. Package — Created and archived the ZIP build artifact.
+
+### Test results
+- Total tests: 2
+- Passed: 2
+- Failed: 0
+
+### Build artifact
+- File: jenkins-cicd-1.zip
+- Location: Jenkins build #1 → Build Artifacts
+
+### Evidence
+See the `screenshots/` directory for pipeline, test report,
+and build artifact screenshots.
