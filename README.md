@@ -136,3 +136,38 @@ The development environment has been verified, and the initial Python applicatio
 
 The next steps are to validate the application locally, push the source code to GitHub, implement the Jenkinsfile, and execute the complete CI/CD pipeline.
 
+
+12. Version Control and GitHub Integration
+
+Git was used to initialise the local repository, track the application source code, and record the initial project commit.
+
+The project was pushed to a GitHub repository to provide a central location for the source code and enable integration with Jenkins.
+
+Repository: [Insert your GitHub repository URL]
+
+Initial commit: Add Python application and unit tests
+
+Validation: Confirmed by checking the commit history and verifying that the project files are visible in GitHub.
+
+Evidence: screenshots/05-git-initial-commit.png and screenshots/06-github-repository.png
+
+
+
+## 13. Jenkins Pipeline as Code
+
+A Declarative Pipeline was defined in a file named `Jenkinsfile` and stored in the root of the GitHub repository.
+
+The pipeline consists of four stages:
+
+1. **Checkout:** retrieves the source code from the configured Git repository.
+2. **Build:** creates a Python virtual environment, installs dependencies, and checks Python syntax.
+3. **Test:** executes automated unit tests using pytest and publishes the JUnit test report.
+4. **Package:** creates a ZIP archive of the application and test files and archives it in Jenkins.
+
+The pipeline is designed to stop when a required build or test command fails.
+
+**Repository:** https://github.com/Funmibi-A/jenkins-cicd
+
+**Validation:** Pending execution in Jenkins.
+
+**Evidence:** `screenshots/07-jenkinsfile.png`
