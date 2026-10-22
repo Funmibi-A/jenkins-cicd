@@ -170,4 +170,15 @@ The pipeline is designed to stop when a required build or test command fails.
 
 **Validation:** Pending execution in Jenkins.
 
-**Evidence:** `screenshots/07-jenkinsfile.png`
+**Evidence:** `screenshots/07-jenkinsfile.png
+
+
+## 14. Jenkins Build Environment
+
+The Jenkins container initially did not include Python 3, which was required to execute the application's build and testing stages.
+
+The container was inspected and identified as Debian GNU/Linux 13. Python 3, virtual environment support, pip, and ZIP utilities were installed to support the CI/CD pipeline.
+
+**Validation:** Pending confirmation of installed tool versions.
+
+**Lesson learned:** Tools installed on the host machine are not automatically available inside Docker containers. Each container requires its own dependencies or an explicitly configured build environment.`
