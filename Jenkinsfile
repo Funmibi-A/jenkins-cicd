@@ -16,12 +16,14 @@ pipeline {
             steps {
                 sh '''
                     echo "=== Jenkins execution environment ==="
-                    whoami
                     hostname
-                    echo "PATH=$PATH"
-                    command -v python3 || true
-                    ls -l /usr/bin/python3 || true
-                    /usr/bin/python3 --version || true
+                    whoami
+                    ls -l /usr/bin/python3
+                    /usr/bin/python3 --version
+                    /usr/bin/python3 -m venv .venv
+                    .venv/bin/python -m pip install --upgrade pip
+                    .venv/bin/python -m pip install -r requirements.txt
+                    .venv/bin/python -m compileall -q app.py tests
                 '''
             }
         }
