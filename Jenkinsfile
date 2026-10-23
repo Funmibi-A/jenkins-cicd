@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -48,7 +49,7 @@ pipeline {
                    app.py requirements.txt tests \
                    -x '*__pycache__*' '*.pyc'
                  '''
-           archiveArtifacts artifacts: 'dist/jenkins-cicd-${BUILD_NUMBER}.zip',
+           archiveArtifacts artifacts: "dist/jenkins-cicd-${BUILD_NUMBER}.zip",
                          fingerprint: true
     }
 }
