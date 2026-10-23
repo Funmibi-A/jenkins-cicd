@@ -42,14 +42,13 @@ pipeline {
         stage('Package') {
             steps {
                 sh '''
-                    mkdir -p dist
-                    zip -r dist/jenkins-cicd-${BUILD_NUMBER}.zip \
-                        app.py requirements.txt tests \
-                        -x '*__pycache__*' '*.pyc'
-                '''
-                archiveArtifacts artifacts: 'dist/*.zip',
-                                 fingerprint: true
-            }
-        }
+                   mkdir -p dist
+                   rm -f dist/jenkins-cicd-*.zip
+                   zip -r dist/jenkins-cicd-${BUILD_NUMBER}.zip \
+                   app.py requirements.txt tests \
+                   -x '*__pycache__*' '*.pyc'
+                 '''
+           archiveArtifacts artifacts: 'dist/jenkins-cicd-${BUILD_NUMBER}.zip',
+                         fingerprint: true
     }
 }
