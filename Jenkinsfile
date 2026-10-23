@@ -51,5 +51,7 @@ pipeline {
                  '''
            archiveArtifacts artifacts: "dist/jenkins-cicd-${BUILD_NUMBER}.zip",
                          fingerprint: true
+          }
+       }
     }
 }
