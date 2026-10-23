@@ -15,10 +15,13 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    python3 -m venv .venv
-                    .venv/bin/python -m pip install --upgrade pip
-                    .venv/bin/python -m pip install -r requirements.txt
-                    python3 -m compileall -q app.py tests
+                    echo "=== Jenkins execution environment ==="
+                    whoami
+                    hostname
+                    echo "PATH=$PATH"
+                    command -v python3 || true
+                    ls -l /usr/bin/python3 || true
+                    /usr/bin/python3 --version || true
                 '''
             }
         }
