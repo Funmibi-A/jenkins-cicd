@@ -1,3 +1,4 @@
+cat > Jenkinsfile <<'EOF'
 pipeline {
     agent any
 
@@ -15,15 +16,10 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    echo "=== Jenkins execution environment ==="
-                    hostname
-                    whoami
-                    ls -l /usr/bin/python3
-                    /usr/bin/python3 --version
-                    /usr/bin/python3 -m venv .venv
+                    python3 -m venv .venv
                     .venv/bin/python -m pip install --upgrade pip
                     .venv/bin/python -m pip install -r requirements.txt
-                    .venv/bin/python -m compileall -q app.py tests
+                    python3 -m compileall -q app.py tests
                 '''
             }
         }
@@ -58,3 +54,4 @@ pipeline {
         }
     }
 }
+EOF
