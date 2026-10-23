@@ -1,0 +1,20 @@
+
+FROM python:3.12-slim
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt \
+    && useradd --create-home appuser
+
+COPY app.py .
+
+RUN chown -R appuser:appuser /app
+
+USER appuser
+
+CMD ["python", "app.py"]
